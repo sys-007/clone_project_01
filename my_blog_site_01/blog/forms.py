@@ -14,3 +14,15 @@ class PostForm(forms.ModelForm):
         }
         # class textinputclass & postcontent own class else are not our class
         # this classes are for edit the css of the widget
+
+
+class CommentForm(forms.ModelForm):
+
+    class Meta():
+        model = Comment
+        fields = ('author', 'text')
+
+        widgets ={
+            'author':forms.TextInput(attrs={'class':'textinputclass'}),
+            'text': forms.Textarea(attrs={'class': 'editable medium-editor-textarea'})
+        }
